@@ -8,14 +8,14 @@
 
 <BorderPane fx:controller="sample.Controller"
             xmlns:fx="http://javafx.com/fxml"
-            stylesheets="@styles.css" style="-fx-background-color: white">
+            stylesheets="@styles.css">
 
     <center>
         <GridPane fx:id="gameSpace" alignment="center"
                   style="-fx-background-color: white">
             <padding><Insets top="25" right="25" bottom="25" left="25"/></padding>
 
-            <Button fx:id="b1" text="1"  GridPane.rowIndex="0" GridPane.columnIndex="0" prefWidth="80" prefHeight="80"
+            <Button fx:id="b1" text="1" GridPane.rowIndex="0" GridPane.columnIndex="0" prefWidth="80" prefHeight="80"
                     onAction="#onButtonClicked"/>
             <Button fx:id="b2" text="2" GridPane.rowIndex="0" GridPane.columnIndex="1" prefWidth="80" prefHeight="80"
                     onAction="#onButtonClicked"/>
