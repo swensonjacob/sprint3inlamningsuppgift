@@ -9,6 +9,7 @@ import javafx.scene.layout.GridPane;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class Controller {
 
@@ -51,9 +52,9 @@ public class Controller {
     List<Button> buttons = new ArrayList<>();
 
     public void initialize() {
+
         addButtons(b1, b2, b3, b4, b5, b6, b7, b8);
         addButtons(b9, b10, b11, b12, b13, b14, b15, nullButton);
-
     }
 
     private void addButtons(Button b1, Button b2, Button b3, Button b4, Button b5, Button b6, Button b7, Button b8) {
@@ -72,18 +73,9 @@ public class Controller {
 
         for (Button button:buttons) {
             if (e.getSource().equals(button)) {
-                if ((GridPane.getRowIndex(button)==GridPane.getRowIndex(nullButton))) {
-                   if (GridPane.getColumnIndex(button)-1==GridPane.getColumnIndex(nullButton)||
-                           GridPane.getColumnIndex(button)+1==GridPane.getColumnIndex(nullButton)){
-                        changeButtonPlace(button);
-                    }
-
-                } else if(GridPane.getColumnIndex(button)==GridPane.getColumnIndex(nullButton)) {
-                        if(GridPane.getRowIndex(button)-1==GridPane.getRowIndex(nullButton)||
-                            GridPane.getRowIndex(button)+1 == GridPane.getRowIndex(nullButton)) {
-                    changeButtonPlace(button);
-                }
-                }
+                if (buttonIsChangeable(button)) {
+                changeButtonPlace(button);
+            }
                   }
         }
         }
@@ -97,11 +89,19 @@ public class Controller {
         GridPane.setColumnIndex(button,nullColIndex);
         GridPane.setRowIndex(button,nullRowIndex);
     }
-//    public boolean buttonIsChangeable(Button button) {
-//
-//            return true;
-//        }else {
-//            return false;
-//        }
-//    }
+    public boolean buttonIsChangeable(Button button) {
+        if ((GridPane.getRowIndex(button)==GridPane.getRowIndex(nullButton))) {
+            if (GridPane.getColumnIndex(button)-1==GridPane.getColumnIndex(nullButton)||
+                    GridPane.getColumnIndex(button)+1==GridPane.getColumnIndex(nullButton)){
+                return true;
+            }
+
+        } else if(GridPane.getColumnIndex(button)==GridPane.getColumnIndex(nullButton)) {
+            if(GridPane.getRowIndex(button)-1==GridPane.getRowIndex(nullButton)||
+                    GridPane.getRowIndex(button)+1 == GridPane.getRowIndex(nullButton)) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

@@ -6,14 +6,15 @@
 
 <?import javafx.scene.layout.BorderPane?>
 
+<?import javafx.scene.layout.HBox?>
 <BorderPane fx:controller="sample.Controller"
             xmlns:fx="http://javafx.com/fxml"
             stylesheets="@styles.css">
 
     <center>
-        <GridPane fx:id="gameSpace" alignment="center"
-                  style="-fx-background-color: white">
-            <padding><Insets top="25" right="25" bottom="25" left="25"/></padding>
+        <GridPane fx:id="gameSpace" alignment="center" vgap="5" hgap="5"
+                  style="-fx-background-color: white" >
+            <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
 
             <Button fx:id="b1" text="1" GridPane.rowIndex="0" GridPane.columnIndex="0" prefWidth="80" prefHeight="80"
                     onAction="#onButtonClicked"/>
