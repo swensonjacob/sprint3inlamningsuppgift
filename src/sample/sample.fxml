@@ -11,14 +11,14 @@
 <BorderPane fx:controller="sample.Controller"
             xmlns:fx="http://javafx.com/fxml"
             stylesheets="@styles.css">
-
     <left>
         <VBox style="-fx-background-color: #3f6dff" spacing="10"
               stylesheets="@menuStyles.css">
             <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
             <Button text="Nytt spel" GridPane.rowIndex="0" GridPane.columnIndex="0" prefWidth="100" prefHeight="40"
                     onAction="#newGame"/>
-            <Button text="Avsluta" GridPane.rowIndex="0" GridPane.columnIndex="0" prefWidth="100" prefHeight="40"/>
+            <Button text="Avsluta" GridPane.rowIndex="0" GridPane.columnIndex="0" prefWidth="100" prefHeight="40"
+                    onAction="#exit"/>
         </VBox>
     </left>
 
@@ -63,11 +63,9 @@
             <Button fx:id="nullButton" prefWidth="80" prefHeight="50" visible="false"
                     onAction="#onButtonClicked"/>
 
+            <HBox prefHeight="50" GridPane.rowIndex="4" GridPane.columnIndex="0" GridPane.columnSpan="3">
+                <Label fx:id="youwon" text="Grattis du vann" alignment="BOTTOM_RIGHT"/>
+            </HBox>
         </GridPane>
     </center>
-    <bottom>
-        <HBox prefHeight="50">
-            <Label fx:id="youwon" text="Grattis du vann"  visible="false"/>
-        </HBox>
-    </bottom>
 </BorderPane>

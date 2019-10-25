@@ -4,3 +4,7 @@
     -fx-text-fill: white;
     -fx-background-radius: 0;
 }
+.label {
+    -fx-font : 24px "Helvetica";
+    -fx-text-fill: #3f6dff;
+}
