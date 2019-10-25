@@ -8,6 +8,7 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
@@ -45,6 +46,8 @@ public class Controller {
     Button b15 = new Button();
     @FXML
     Button nullButton = new Button();
+    @FXML
+    private Button newGameButton = new Button();
 
     @FXML
     GridPane gameSpace = new GridPane();
@@ -57,12 +60,7 @@ public class Controller {
         addButtons(b1, b2, b3, b4, b5, b6, b7, b8);
         addButtons(b9, b10, b11, b12, b13, b14, b15, nullButton);
 
-        for (int i = 0; i < 15; i++) {
-            text.add(Integer.toString(i+1));
-        }
-        for (int i = 0; i < 15; i++) {
-            System.out.println(text.get(i));
-        }
+        placeButtons();
 
     }
 
@@ -75,6 +73,7 @@ public class Controller {
         buttons.add(b6);
         buttons.add(b7);
         buttons.add(b8);
+
     }
 
     @FXML
@@ -84,12 +83,28 @@ public class Controller {
             if (e.getSource().equals(button)) {
                 if (buttonIsChangeable(button)) {
                 changeButtonPlace(button);
+
             }
                   }
         }
         }
-        public void setButtonText() {
 
+    @FXML
+    public void newGame(ActionEvent e) {
+            Collections.shuffle(buttons);
+            placeButtons();
+    }
+        public void placeButtons() {
+        List shuffledList = buttons;
+        Collections.shuffle(shuffledList);
+        int counter = 0;
+            for (int i = 0; i <4 ; i++) {
+                for (int j = 0; j <4 ; j++) {
+                    GridPane.setRowIndex(buttons.get(counter),i);
+                    GridPane.setColumnIndex(buttons.get(counter),j);
+                    counter++;
+                }
+            }
         }
     public void changeButtonPlace(Button button) {
         int buttonColIndex = GridPane.getColumnIndex(button);
