@@ -1,16 +1,13 @@
 package sample;
 
-import javafx.collections.ObservableArray;
-import javafx.collections.ObservableList;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Random;
 
 public class Controller {
 
@@ -46,14 +43,11 @@ public class Controller {
     Button b15 = new Button();
     @FXML
     Button nullButton = new Button();
-    @FXML
-    private Button newGameButton = new Button();
 
     @FXML
     GridPane gameSpace = new GridPane();
 
     List<Button> buttons = new ArrayList<>();
-    List<String> text = new ArrayList<>();
 
     public void initialize() {
 

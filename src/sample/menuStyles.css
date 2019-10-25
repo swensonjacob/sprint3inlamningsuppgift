@@ -1,0 +1,6 @@
+.button {
+    -fx-font : 16px "Helvetica";
+    -fx-background-color: white;
+    -fx-text-fill: #3f6dff;
+    -fx-background-radius: 0;
+}

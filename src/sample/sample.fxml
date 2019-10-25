@@ -13,11 +13,12 @@
             stylesheets="@styles.css">
 
     <left>
-        <VBox style="-fx-background-color: white" spacing="10">
+        <VBox style="-fx-background-color: #3f6dff" spacing="10"
+              stylesheets="@menuStyles.css">
             <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
-            <Button fx:id="newGameButton" text="Nytt spel" GridPane.rowIndex="0" GridPane.columnIndex="0" prefWidth="100" prefHeight="50"
+            <Button text="Nytt spel" GridPane.rowIndex="0" GridPane.columnIndex="0" prefWidth="100" prefHeight="40"
                     onAction="#newGame"/>
-            <Button text="Avsluta" GridPane.rowIndex="0" GridPane.columnIndex="0" prefWidth="100" prefHeight="50"/>
+            <Button text="Avsluta" GridPane.rowIndex="0" GridPane.columnIndex="0" prefWidth="100" prefHeight="40"/>
         </VBox>
     </left>
 
