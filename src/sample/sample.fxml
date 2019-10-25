@@ -8,6 +8,8 @@
 
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
 <BorderPane fx:controller="sample.Controller"
             xmlns:fx="http://javafx.com/fxml"
             stylesheets="@styles.css">
@@ -62,10 +64,45 @@
                     onAction="#onButtonClicked"/>
             <Button fx:id="nullButton" prefWidth="80" prefHeight="50" visible="false"
                     onAction="#onButtonClicked"/>
-
-            <HBox prefHeight="50" GridPane.rowIndex="4" GridPane.columnIndex="0" GridPane.columnSpan="3">
-                <Label fx:id="youwon" text="Grattis du vann" alignment="BOTTOM_RIGHT"/>
+            <HBox fx:id="youWon" spacing="6" GridPane.rowIndex="4" GridPane.columnIndex="0" GridPane.columnSpan="4">
+                <HBox GridPane.columnIndex="0">
+                    <Label alignment="BOTTOM_CENTER">
+                        <graphic>
+                            <ImageView>
+                                <Image url="https://img.icons8.com/ultraviolet/80/000000/win.png"/>
+                            </ImageView>
+                        </graphic>
+                    </Label>
+                </HBox>
+                <HBox GridPane.columnIndex="1">
+                    <Label alignment="BOTTOM_CENTER">
+                        <graphic>
+                            <ImageView>
+                                <Image url="https://img.icons8.com/ultraviolet/80/000000/win.png"/>
+                            </ImageView>
+                        </graphic>
+                    </Label>
+                </HBox>
+                <HBox GridPane.columnIndex="2">
+                    <Label alignment="BOTTOM_CENTER">
+                        <graphic>
+                            <ImageView>
+                                <Image url="https://img.icons8.com/ultraviolet/80/000000/win.png"/>
+                            </ImageView>
+                        </graphic>
+                    </Label>
+                </HBox>
+                <HBox GridPane.columnIndex="3">
+                    <Label alignment="BOTTOM_CENTER">
+                        <graphic>
+                            <ImageView>
+                                <Image url="https://img.icons8.com/ultraviolet/80/000000/win.png"/>
+                            </ImageView>
+                        </graphic>
+                    </Label>
+                </HBox>
             </HBox>
+
         </GridPane>
     </center>
 </BorderPane>

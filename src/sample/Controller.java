@@ -6,14 +6,15 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 public class Controller {
 
-    @FXML
-    Label youwon = new Label();
+
     @FXML
     Button b1 = new Button();
     @FXML
@@ -46,7 +47,8 @@ public class Controller {
     Button b15 = new Button();
     @FXML
     Button nullButton = new Button();
-
+    @FXML
+    HBox youWon = new HBox();
     @FXML
     GridPane gameSpace = new GridPane();
 
@@ -80,7 +82,7 @@ public class Controller {
                 if (buttonIsChangeable(button)) {
                     changeButtonPlace(button);
                     if (didYouWin()){
-                        youwon.setVisible(true);
+                        youWon.setVisible(true);
                     }
                 }
             }
@@ -99,15 +101,15 @@ public class Controller {
     }
 
     public void placeButtons() {
-        List shuffledList = buttons;
-        Collections.shuffle(shuffledList);
+        //List shuffledList = buttons;
+        //Collections.shuffle(shuffledList);
         int counter = 0;
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
                 GridPane.setRowIndex(buttons.get(counter), i);
                 GridPane.setColumnIndex(buttons.get(counter), j);
                 counter++;
-                youwon.setVisible(false);
+                youWon.setVisible(false);
             }
         }
     }
