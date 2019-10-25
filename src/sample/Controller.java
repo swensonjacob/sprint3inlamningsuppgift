@@ -5,6 +5,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 
 import java.util.ArrayList;
@@ -14,6 +15,8 @@ import java.util.Random;
 
 public class Controller {
 
+    @FXML
+    Label youwon = new Label();
     @FXML
     Button b1 = new Button();
     @FXML
@@ -83,8 +86,9 @@ public class Controller {
             if (e.getSource().equals(button)) {
                 if (buttonIsChangeable(button)) {
                     changeButtonPlace(button);
-                    didYouWin();
-
+                    if (didYouWin()){
+                        youwon.setVisible(true);
+                    }
                 }
             }
         }
@@ -105,6 +109,7 @@ public class Controller {
                 GridPane.setRowIndex(buttons.get(counter), i);
                 GridPane.setColumnIndex(buttons.get(counter), j);
                 counter++;
+                youwon.setVisible(false);
             }
         }
     }
@@ -121,21 +126,20 @@ public class Controller {
     }
 
     public boolean didYouWin() {
+
         int counter = 0;
         boolean winning = true;
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
-                System.out.println((GridPane.getColumnIndex(buttons.get(counter)) +" "+i+" "+GridPane.getRowIndex(buttons.get(counter))+" "+j));
-                if ((GridPane.getColumnIndex(buttons.get(counter)) == i
-                        && (GridPane.getRowIndex(buttons.get(counter)) == j))){
-                counter++;
-
+                if ((GridPane.getRowIndex(buttons.get(counter)) == i
+                        && (GridPane.getColumnIndex(buttons.get(counter)) == j))){
+                    counter++;
                 }else{
+                    counter++;
                     winning = false;
                 }
             }
         }
-        System.out.println("DU vann " + winning);
         return winning;
     }
 

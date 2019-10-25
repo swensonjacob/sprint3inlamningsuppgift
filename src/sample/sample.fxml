@@ -64,4 +64,9 @@
 
         </GridPane>
     </center>
+    <bottom>
+        <HBox prefHeight="50">
+            <Label fx:id="youwon" text="Grattis du vann"  visible="false"/>
+        </HBox>
+    </bottom>
 </BorderPane>
