@@ -7,14 +7,23 @@
 <?import javafx.scene.layout.BorderPane?>
 
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <BorderPane fx:controller="sample.Controller"
             xmlns:fx="http://javafx.com/fxml"
             stylesheets="@styles.css">
 
+    <left>
+        <VBox style="-fx-background-color: white" spacing="10">
+            <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+            <Button text="Nytt spel" GridPane.rowIndex="0" GridPane.columnIndex="0" prefWidth="80" prefHeight="50"/>
+            <Button text="Avsluta" GridPane.rowIndex="0" GridPane.columnIndex="0" prefWidth="80" prefHeight="50"/>
+        </VBox>
+    </left>
+
     <center>
         <GridPane fx:id="gameSpace" alignment="center" vgap="5" hgap="5"
                   style="-fx-background-color: white" >
-            <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+            <padding><Insets top="20" right="10" bottom="10" left="10"/></padding>
 
             <Button fx:id="b1" text="1" GridPane.rowIndex="0" GridPane.columnIndex="0" prefWidth="80" prefHeight="80"
                     onAction="#onButtonClicked"/>

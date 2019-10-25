@@ -50,11 +50,20 @@ public class Controller {
     GridPane gameSpace = new GridPane();
 
     List<Button> buttons = new ArrayList<>();
+    List<String> text = new ArrayList<>();
 
     public void initialize() {
 
         addButtons(b1, b2, b3, b4, b5, b6, b7, b8);
         addButtons(b9, b10, b11, b12, b13, b14, b15, nullButton);
+
+        for (int i = 0; i < 15; i++) {
+            text.add(Integer.toString(i+1));
+        }
+        for (int i = 0; i < 15; i++) {
+            System.out.println(text.get(i));
+        }
+
     }
 
     private void addButtons(Button b1, Button b2, Button b3, Button b4, Button b5, Button b6, Button b7, Button b8) {
@@ -78,6 +87,9 @@ public class Controller {
             }
                   }
         }
+        }
+        public void setButtonText() {
+
         }
     public void changeButtonPlace(Button button) {
         int buttonColIndex = GridPane.getColumnIndex(button);
