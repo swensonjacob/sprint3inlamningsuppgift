@@ -1,8 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?import javafx.scene.control.*?>
 
-<DialogPane xmlns="http://javafx.com/javafx"
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<BorderPane fx:id="exitDialog" xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="sample.AddExitDialog"
-            style="-fx-background-color: #3f6dff; -fx-text-fill: white; -fx-font: 10px Helvetica">
-</DialogPane>
+            prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #000000" stylesheets="@styles.css">
+    <top>
+        <Label text="Are you sure you want to exit?"/>
+    </top>
+    <bottom>
+        <HBox>
+            <Button text="Yes"/>
+            <Button text="No"/>
+        </HBox>
+
+    </bottom>
+</BorderPane>
