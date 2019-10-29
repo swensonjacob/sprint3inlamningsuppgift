@@ -12,42 +12,17 @@ import java.util.*;
 
 public class Controller {
 
+    @FXML private Button b1; @FXML private Button b2; @FXML private Button b3;
+    @FXML private Button b4; @FXML private Button b5; @FXML private Button b6;
+    @FXML private Button b7; @FXML private Button b8; @FXML private Button b9;
+    @FXML private Button b10; @FXML private Button b11; @FXML private Button b12;
+    @FXML private Button b13; @FXML private Button b14; @FXML private Button b15;
     @FXML
-    private Button b1 = new Button();
+    private Button nullButton;
     @FXML
-    private Button b2 = new Button();
+    private HBox youWon;
     @FXML
-    private Button b3 = new Button();
-    @FXML
-    private Button b4 = new Button();
-    @FXML
-    private Button b5 = new Button();
-    @FXML
-    private Button b6 = new Button();
-    @FXML
-    private Button b7 = new Button();
-    @FXML
-    private Button b8 = new Button();
-    @FXML
-    private Button b9 = new Button();
-    @FXML
-    private Button b10 = new Button();
-    @FXML
-    private Button b11 = new Button();
-    @FXML
-    private Button b12 = new Button();
-    @FXML
-    private Button b13 = new Button();
-    @FXML
-    private Button b14 = new Button();
-    @FXML
-    private Button b15 = new Button();
-    @FXML
-    private Button nullButton = new Button();
-    @FXML
-    private HBox youWon = new HBox();
-    @FXML
-    private GridPane gameSpace = new GridPane();
+    private GridPane gameSpace;
     @FXML
     private Label startingDeathStar;
     @FXML
