@@ -3,14 +3,21 @@ package sample;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.scene.layout.Border;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 public class Controller {
 
@@ -81,7 +88,7 @@ public class Controller {
             if (e.getSource().equals(button)) {
                 if (buttonIsChangeable(button)) {
                     changeButtonPlace(button);
-                    if (didYouWin()){
+                    if (didYouWin()) {
                         youWon.setVisible(true);
                     }
                 }
@@ -97,7 +104,24 @@ public class Controller {
 
     @FXML
     public void exit(ActionEvent e) {
-        System.exit(0);
+        Dialog<ButtonType> exitDialog = new Dialog<>();
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(getClass().getResource("addExitDialog.fxml"));
+        try {
+            exitDialog.setTitle("Exit");
+            exitDialog.setHeaderText("Are you sure you want to exit?");
+            exitDialog.getDialogPane().setContent(fxmlLoader.load());
+            exitDialog.getDialogPane().getButtonTypes().addAll(ButtonType.NO, ButtonType.YES);
+
+        } catch (IOException e1) {
+            System.out.println("Error");
+            e1.printStackTrace();
+        }
+
+        Optional<ButtonType> result = exitDialog.showAndWait();
+        if (result.isPresent() && result.get() == ButtonType.YES) {
+            System.exit(0);
+        }
     }
 
     public void placeButtons() {
@@ -131,9 +155,9 @@ public class Controller {
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
                 if ((GridPane.getRowIndex(buttons.get(counter)) == i
-                        && (GridPane.getColumnIndex(buttons.get(counter)) == j))){
+                        && (GridPane.getColumnIndex(buttons.get(counter)) == j))) {
                     counter++;
-                }else{
+                } else {
                     counter++;
                     winning = false;
                 }
