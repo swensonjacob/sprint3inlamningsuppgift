@@ -1,108 +1,106 @@
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.layout.GridPane?>
+<?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
-
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.image.Image?>
-<BorderPane fx:controller="sample.Controller"
-            xmlns:fx="http://javafx.com/fxml"
-            stylesheets="@styles.css">
-    <left>
-        <VBox style="-fx-background-color: #3f6dff" spacing="10"
-              stylesheets="@menuStyles.css">
-            <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
-            <Button text="Nytt spel" GridPane.rowIndex="0" GridPane.columnIndex="0" prefWidth="100" prefHeight="40"
-                    onAction="#newGame"/>
-            <Button text="Avsluta" GridPane.rowIndex="0" GridPane.columnIndex="0" prefWidth="100" prefHeight="40"
-                    onAction="#exit"/>
+
+<?import javafx.scene.layout.StackPane?>
+<BorderPane fx:id="mainBorderPane" stylesheets="@styles.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="sample.Controller">
+    <top>
+        <VBox alignment="CENTER" style="-fx-background-color: #000000">
+            <Label text="Puzzle Wars">
+                <padding><Insets left="10" right="10" top="20" /></padding>
+            </Label>
+
+            <GridPane  alignment="center"  hgap="10" vgap="5" stylesheets="@menuStyles.css">
+                <padding><Insets left="10" right="10" top="20" /></padding>
+                <Button contentDisplay="TOP" text="New Game"  onAction="#newGame" prefWidth="155"  GridPane.columnIndex="0" GridPane.rowIndex="0" style="-fx-text-fill: #000000">
+                    <graphic>
+                        <ImageView>
+                            <Image url="https://img.icons8.com/ios-filled/50/000000/rebel.png"/>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button contentDisplay="TOP" text="Exit" onAction="#exit" prefWidth="155" GridPane.columnIndex="2" GridPane.rowIndex="0" style="-fx-text-fill: #000000" >
+                    <graphic>
+                        <ImageView>
+                            <Image url="https://img.icons8.com/ios-filled/50/000000/darth-vader.png"/>
+                        </ImageView>
+                    </graphic>
+                </Button>
+            </GridPane>
         </VBox>
-    </left>
+    </top>
 
     <center>
-        <GridPane fx:id="gameSpace" alignment="center" vgap="5" hgap="5"
-                  style="-fx-background-color: white" >
-            <padding><Insets top="60" right="10" bottom="10" left="10"/></padding>
+        <StackPane style="-fx-background-color: #000000" alignment="CENTER">
+            <Label fx:id="startingDeathStar" alignment="CENTER" >
+                <graphic>
+                    <ImageView>
+                        <Image url="@Resources/wholedeathstar.png"/>
+                    </ImageView>
+                </graphic>
+            </Label>
+            <Label fx:id="brokenDeathStar" alignment="CENTER" visible="false" >
+                <graphic>
+                    <ImageView>
+                        <Image url="@Resources/deathstar.png"/>
+                    </ImageView>
+                </graphic>
+            </Label>
+            <GridPane fx:id="gameSpace" alignment="center" hgap="1" vgap="1" visible="false">
+                <padding><Insets bottom="10" left="10" right="10" top="20" /></padding>
 
-            <Button fx:id="b1" text="1" prefWidth="80" prefHeight="80"
-                    onAction="#onButtonClicked"/>
-            <Button fx:id="b2" text="2" prefWidth="80" prefHeight="80"
-                    onAction="#onButtonClicked"/>
-            <Button fx:id="b3" text="3" prefWidth="80" prefHeight="80"
-                    onAction="#onButtonClicked"/>
-            <Button fx:id="b4" text="4"  prefWidth="80" prefHeight="80"
-                    onAction="#onButtonClicked"/>
+                <Button fx:id="b1" onAction="#onButtonClicked" prefHeight="80" prefWidth="80" text="1" />
+                <Button fx:id="b2" onAction="#onButtonClicked" prefHeight="80" prefWidth="80" text="2" />
+                <Button fx:id="b3" onAction="#onButtonClicked" prefHeight="80" prefWidth="80" text="3" />
+                <Button fx:id="b4" onAction="#onButtonClicked" prefHeight="80" prefWidth="80" text="4" />
 
-            <Button fx:id="b5" text="5" prefWidth="80" prefHeight="80"
-                    onAction="#onButtonClicked"/>
-            <Button fx:id="b6" text="6" prefWidth="80" prefHeight="80"
-                    onAction="#onButtonClicked"/>
-            <Button fx:id="b7" text="7" prefWidth="80" prefHeight="80"
-                    onAction="#onButtonClicked"/>
-            <Button fx:id="b8" text="8" prefWidth="80" prefHeight="80"
-                    onAction="#onButtonClicked"/>
+                <Button fx:id="b5" onAction="#onButtonClicked" prefHeight="80" prefWidth="80" text="5" />
+                <Button fx:id="b6" onAction="#onButtonClicked" prefHeight="80" prefWidth="80" text="6" />
+                <Button fx:id="b7" onAction="#onButtonClicked" prefHeight="80" prefWidth="80" text="7" />
+                <Button fx:id="b8" onAction="#onButtonClicked" prefHeight="80" prefWidth="80" text="8" />
 
-            <Button fx:id="b9" text="9" prefWidth="80" prefHeight="80"
-                    onAction="#onButtonClicked"/>
-            <Button fx:id="b10" text="10" prefWidth="80" prefHeight="80"
-                    onAction="#onButtonClicked"/>
-            <Button fx:id="b11" text="11" prefWidth="80" prefHeight="80"
-                    onAction="#onButtonClicked"/>
-            <Button fx:id="b12" text="12" prefWidth="80" prefHeight="80"
-                    onAction="#onButtonClicked"/>
+                <Button fx:id="b9" onAction="#onButtonClicked" prefHeight="80" prefWidth="80" text="9" />
+                <Button fx:id="b10" onAction="#onButtonClicked" prefHeight="80" prefWidth="80" text="10" />
+                <Button fx:id="b11" onAction="#onButtonClicked" prefHeight="80" prefWidth="80" text="11" />
+                <Button fx:id="b12" onAction="#onButtonClicked" prefHeight="80" prefWidth="80" text="12" />
 
-            <Button fx:id="b13" text="13" prefWidth="80" prefHeight="80"
-                    onAction="#onButtonClicked"/>
-            <Button fx:id="b14" text="14" prefWidth="80" prefHeight="80"
-                    onAction="#onButtonClicked"/>
-            <Button fx:id="b15" text="15" prefWidth="80" prefHeight="80"
-                    onAction="#onButtonClicked"/>
-            <Button fx:id="nullButton" prefWidth="80" prefHeight="50" visible="false"
-                    onAction="#onButtonClicked"/>
-            <HBox fx:id="youWon" spacing="6" GridPane.rowIndex="4" GridPane.columnIndex="0" GridPane.columnSpan="4">
-                <HBox GridPane.columnIndex="0">
-                    <Label alignment="BOTTOM_CENTER">
-                        <graphic>
-                            <ImageView>
-                                <Image url="https://img.icons8.com/ultraviolet/80/000000/win.png"/>
-                            </ImageView>
-                        </graphic>
-                    </Label>
-                </HBox>
-                <HBox GridPane.columnIndex="1">
-                    <Label alignment="BOTTOM_CENTER">
-                        <graphic>
-                            <ImageView>
-                                <Image url="https://img.icons8.com/ultraviolet/80/000000/win.png"/>
-                            </ImageView>
-                        </graphic>
-                    </Label>
-                </HBox>
-                <HBox GridPane.columnIndex="2">
-                    <Label alignment="BOTTOM_CENTER">
-                        <graphic>
-                            <ImageView>
-                                <Image url="https://img.icons8.com/ultraviolet/80/000000/win.png"/>
-                            </ImageView>
-                        </graphic>
-                    </Label>
-                </HBox>
-                <HBox GridPane.columnIndex="3">
-                    <Label alignment="BOTTOM_CENTER">
-                        <graphic>
-                            <ImageView>
-                                <Image url="https://img.icons8.com/ultraviolet/80/000000/win.png"/>
-                            </ImageView>
-                        </graphic>
-                    </Label>
-                </HBox>
-            </HBox>
+                <Button fx:id="b13" onAction="#onButtonClicked" prefHeight="80" prefWidth="80" text="13" />
+                <Button fx:id="b14" onAction="#onButtonClicked" prefHeight="80" prefWidth="80" text="14" />
+                <Button fx:id="b15" onAction="#onButtonClicked" prefHeight="80" prefWidth="80" text="15" />
+                <Button fx:id="nullButton" onAction="#onButtonClicked" prefHeight="50" prefWidth="80" visible="false" />
 
-        </GridPane>
+            </GridPane>
+        </StackPane>
+
     </center>
+
+    <bottom>
+        <HBox style="-fx-background-color: #000000" alignment="CENTER">
+            <HBox fx:id="youWon" spacing="6" visible="false" >
+                <Label >
+                    <graphic>
+                        <ImageView>
+                            <Image url="@Resources/xwingfront.png"/>
+                        </ImageView>
+                    </graphic>
+                </Label>
+                <Label text="You Won" style="-fx-font-size: 36"/>
+                <Label >
+                    <graphic>
+                        <ImageView>
+                            <Image url="@Resources/xwingfront.png"/>
+                        </ImageView>
+                    </graphic>
+                </Label>
+            </HBox>
+        </HBox>
+    </bottom>
 </BorderPane>

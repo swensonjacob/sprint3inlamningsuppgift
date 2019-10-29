@@ -1,6 +1,12 @@
+@font-face {
+    font-family: 'Star Jedi';
+    src: url(Resources/Starjedi.ttf);
+}
+
 .button {
-    -fx-font : 16px "Helvetica";
-    -fx-background-color: white;
-    -fx-text-fill: #3f6dff;
+    -fx-font : 14px "Star Jedi";
+    -fx-opacity: 1;
+    -fx-background-color: #FFE81F;
+    -fx-text-fill: #4a5663;
     -fx-background-radius: 0;
 }

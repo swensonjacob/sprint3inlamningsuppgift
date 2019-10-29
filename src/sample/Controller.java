@@ -58,6 +58,10 @@ public class Controller {
     HBox youWon = new HBox();
     @FXML
     GridPane gameSpace = new GridPane();
+    @FXML
+    Label startingDeathStar;
+    @FXML
+    Label brokenDeathStar;
 
     List<Button> buttons = new ArrayList<>();
 
@@ -65,8 +69,6 @@ public class Controller {
 
         addButtons(b1, b2, b3, b4, b5, b6, b7, b8);
         addButtons(b9, b10, b11, b12, b13, b14, b15, nullButton);
-
-        placeButtons();
 
     }
 
@@ -89,7 +91,7 @@ public class Controller {
                 if (buttonIsChangeable(button)) {
                     changeButtonPlace(button);
                     if (didYouWin()) {
-                        youWon.setVisible(true);
+                        winMessage();
                     }
                 }
             }
@@ -98,8 +100,9 @@ public class Controller {
 
     @FXML
     public void newGame(ActionEvent e) {
-        Collections.shuffle(buttons);
-        placeButtons();
+        gameSpace.setVisible(true);
+        winMessageGone();
+        placeButtons(buttons);
     }
 
     @FXML
@@ -124,16 +127,14 @@ public class Controller {
         }
     }
 
-    public void placeButtons() {
-        //List shuffledList = buttons;
-        //Collections.shuffle(shuffledList);
+    public void placeButtons(List<Button> shuffledList) {
+        //Collections.shuffle((shuffledList));
         int counter = 0;
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
-                GridPane.setRowIndex(buttons.get(counter), i);
-                GridPane.setColumnIndex(buttons.get(counter), j);
+                GridPane.setRowIndex(shuffledList.get(counter), i);
+                GridPane.setColumnIndex(shuffledList.get(counter), j);
                 counter++;
-                youWon.setVisible(false);
             }
         }
     }
@@ -177,4 +178,17 @@ public class Controller {
         }
         return false;
     }
+    public void winMessage() {
+        youWon.setVisible(true);
+        brokenDeathStar.setVisible(true);
+        startingDeathStar.setVisible(false);
+        gameSpace.setVisible(false);
+    }
+    public void winMessageGone() {
+        youWon.setVisible(false);
+        brokenDeathStar.setVisible(false);
+        startingDeathStar.setVisible(true);
+        gameSpace.setVisible(true);
+    }
 }
+
