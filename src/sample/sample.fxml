@@ -27,7 +27,7 @@
                         </ImageView>
                     </graphic>
                 </Button>
-                <Button contentDisplay="TOP" text="Exit" onAction="#exit" prefWidth="155" GridPane.columnIndex="2" GridPane.rowIndex="0" style="-fx-text-fill: #000000" >
+                <Button contentDisplay="TOP" text="Exit" onAction="#showExitDialog" prefWidth="155" GridPane.columnIndex="2" GridPane.rowIndex="0" style="-fx-text-fill: #000000" >
                     <graphic>
                         <ImageView>
                             <Image url="https://img.icons8.com/ios-filled/50/000000/darth-vader.png"/>
