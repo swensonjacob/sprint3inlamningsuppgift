@@ -1,0 +1,22 @@
+@font-face {
+    font-family: 'Star Jedi';
+    src: url(Resources/Starjedi.ttf);
+}
+@font-face {
+    font-family: 'Star Jedi Hollow';
+    src: url(Resources/Starjedi.ttf);
+}
+
+.exitDialogStyle {
+    -fx-background-color: #000000;
+}
+
+.button {
+    -fx-font-family: 'Star Jedi';
+    -fx-font-size: 12;
+    -fx-background-color: #000000;
+    -fx-text-fill: #FFE81F;
+    -fx-background-radius: 0;
+    -fx-border-color: #FFE81F;
+    -fx-border-width: 3;
+}

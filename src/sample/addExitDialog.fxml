@@ -5,16 +5,8 @@
 <?import javafx.scene.layout.HBox?>
 <BorderPane fx:id="exitDialog" xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="sample.AddExitDialog"
-            prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #000000" stylesheets="@styles.css">
+            fx:controller="sample.AddExitDialog" style="-fx-background-color: #000000" stylesheets="@menuStyles.css">
     <top>
         <Label text="Are you sure you want to exit?"/>
     </top>
-    <bottom>
-        <HBox>
-            <Button text="Yes"/>
-            <Button text="No"/>
-        </HBox>
-
-    </bottom>
 </BorderPane>

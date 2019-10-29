@@ -7,6 +7,11 @@
     -fx-font : 14px "Star Jedi";
     -fx-opacity: 1;
     -fx-background-color: #FFE81F;
-    -fx-text-fill: #4a5663;
+    -fx-text-fill: #000000;
     -fx-background-radius: 0;
+}
+
+.label {
+    -fx-font : 14px "Star Jedi";
+    -fx-text-fill: #FFE81F;
 }

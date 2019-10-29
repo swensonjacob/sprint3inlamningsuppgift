@@ -112,9 +112,13 @@ public class Controller {
         fxmlLoader.setLocation(getClass().getResource("addExitDialog.fxml"));
         try {
             exitDialog.setTitle("Exit");
-            exitDialog.setHeaderText("Are you sure you want to exit?");
             exitDialog.getDialogPane().setContent(fxmlLoader.load());
-            exitDialog.getDialogPane().getButtonTypes().addAll(ButtonType.NO, ButtonType.YES);
+            exitDialog.getDialogPane().getButtonTypes().addAll(ButtonType.YES,ButtonType.NO);
+            ((Button) exitDialog.getDialogPane().lookupButton(ButtonType.YES)).setText("Yes");
+            ((Button) exitDialog.getDialogPane().lookupButton(ButtonType.NO)).setText("No");
+            exitDialog.getDialogPane().getStylesheets().add(
+                    getClass().getResource("exitDialogStyle.css").toExternalForm());
+            exitDialog.getDialogPane().getStyleClass().add("exitDialogStyle");
 
         } catch (IOException e1) {
             System.out.println("Error");
