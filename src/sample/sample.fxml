@@ -9,25 +9,39 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
-
 <?import javafx.scene.layout.StackPane?>
 <BorderPane fx:id="mainBorderPane" stylesheets="@styles.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="sample.Controller">
     <top>
-        <VBox alignment="CENTER" style="-fx-background-color: #000000">
-            <Label text="Puzzle Wars">
-                <padding><Insets left="10" right="10" top="20" /></padding>
-            </Label>
-
+        <VBox alignment="TOP_CENTER" style="-fx-background-color: #000000">
+            <HBox alignment="TOP_LEFT">
+                <StackPane>
+                    <Button prefHeight="10" fx:id="playButton" onAction="#mute" style="-fx-font-size: 0;-fx-background-color: #000000; -fx-border-width: 0" >
+                        <graphic>
+                            <ImageView>
+                                <Image url="@Resources/audio.png"/>
+                            </ImageView>
+                        </graphic>
+                    </Button>
+                    <Button prefHeight="10" fx:id="muteButton" onAction="#play" style="-fx-font-size: 0;-fx-background-color: #000000; -fx-border-width: 0; -fx-border-width: 0" visible="false">
+                        <graphic>
+                            <ImageView>
+                                <Image url="@Resources/mute.png"/>
+                            </ImageView>
+                        </graphic>
+                    </Button>
+                </StackPane>
+            </HBox>
+            <Label text="Puzzle Wars"/>
             <GridPane  alignment="center"  hgap="10" vgap="5" stylesheets="@menuStyles.css">
                 <padding><Insets left="10" right="10" top="20" /></padding>
-                <Button contentDisplay="TOP" text="New Game"  onAction="#newGame" prefWidth="155"  GridPane.columnIndex="0" GridPane.rowIndex="0" style="-fx-text-fill: #000000">
+                <Button contentDisplay="TOP" text="New Game"  onAction="#newGame" prefWidth="155"  GridPane.columnIndex="0" GridPane.rowIndex="1" style="-fx-text-fill: #000000">
                     <graphic>
                         <ImageView>
                             <Image url="https://img.icons8.com/ios-filled/50/000000/rebel.png"/>
                         </ImageView>
                     </graphic>
                 </Button>
-                <Button contentDisplay="TOP" text="Exit" onAction="#showExitDialog" prefWidth="155" GridPane.columnIndex="2" GridPane.rowIndex="0" style="-fx-text-fill: #000000" >
+                <Button contentDisplay="TOP" text="Exit" onAction="#showExitDialog" prefWidth="155" GridPane.columnIndex="2" GridPane.rowIndex="1" style="-fx-text-fill: #000000" >
                     <graphic>
                         <ImageView>
                             <Image url="https://img.icons8.com/ios-filled/50/000000/darth-vader.png"/>

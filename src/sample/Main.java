@@ -15,10 +15,10 @@ public class Main extends Application {
         javafx.scene.text.Font.getFamilies();
         primaryStage.setResizable(false);
         primaryStage.show();
-
     }
 
     public static void main(String[] args) {
         launch(args);
     }
+
 }

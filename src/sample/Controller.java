@@ -20,6 +20,10 @@ public class Controller {
     @FXML
     private Button nullButton;
     @FXML
+    private Button muteButton;
+    @FXML
+    private Button playButton;
+    @FXML
     private HBox youWon;
     @FXML
     private GridPane gameSpace;
@@ -27,11 +31,10 @@ public class Controller {
     private Label startingDeathStar;
     @FXML
     private Label brokenDeathStar;
-
-    private List<Button> buttons;
     @FXML
     private Label winText;
 
+    private List<Button> buttons;
     private long startTime;
     private long endTime;
 
@@ -39,6 +42,21 @@ public class Controller {
     public void initialize() {
         buttons = Arrays.asList(b1, b2, b3, b4, b5, b6, b7, b8,
                 b9, b10, b11, b12, b13, b14, b15, nullButton);
+        Music.playBackroundMusic();
+    }
+
+    @FXML
+    public void mute() {
+        muteButton.setVisible(true);
+        playButton.setVisible(false);
+        Music.mute(true);
+    }
+
+    @FXML
+    public void play() {
+        muteButton.setVisible(false);
+        playButton.setVisible(true);
+        Music.mute(false);
     }
 
     @FXML
@@ -50,6 +68,7 @@ public class Controller {
                     endTime = System.currentTimeMillis();
                     takeTime();
                     winMessage();
+                    Music.playWinMusic();
                 }
             }
         }
@@ -61,6 +80,10 @@ public class Controller {
         winMessageGone();
         placeButtons(buttons);
         startTime = System.currentTimeMillis();
+        if (!Music.isFirstTime()) {
+            Music.newGameMusic();
+        }
+        Music.setFirstTime(false);
     }
 
     @FXML
@@ -153,17 +176,18 @@ public class Controller {
         startingDeathStar.setVisible(true);
         gameSpace.setVisible(true);
     }
-    public void takeTime(){
 
-        long durationInSeconds =  (endTime - startTime) / 1000;
+    public void takeTime() {
+
+        long durationInSeconds = (endTime - startTime) / 1000;
         long durationInMinutes = durationInSeconds / 60;
         durationInSeconds %= 60;
 
         if (durationInMinutes > 0) {
             winText.setText("     You won\n Your Time: " + durationInMinutes + " M" +
                     " " + durationInSeconds + "S");
-        }else{
-            winText.setText("   You won\n Your Time: " + durationInSeconds+" S");
+        } else {
+            winText.setText("   You won\n Your Time: " + durationInSeconds + " S");
         }
     }
 }
