@@ -42,7 +42,7 @@ public class Controller {
     public void initialize() {
         buttons = Arrays.asList(b1, b2, b3, b4, b5, b6, b7, b8,
                 b9, b10, b11, b12, b13, b14, b15, nullButton);
-        Music.playBackroundMusic();
+        Music.playBackgroundMusic();
     }
 
     @FXML
@@ -117,7 +117,7 @@ public class Controller {
 
     // Places all the buttons on the game field.
     public void placeButtons(List<Button> shuffledList) {
-        //Collections.shuffle(shuffledList);
+        Collections.shuffle(shuffledList);
         int counter = 0;
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {

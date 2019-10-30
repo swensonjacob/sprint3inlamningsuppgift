@@ -13,7 +13,7 @@ public class Music {
     private static Media winMusic = new Media(new File("src/sample/Resources/Starwarstheme.mp3").toURI().toString());
 
 
-    public static void playBackroundMusic() {
+    public static void playBackgroundMusic() {
         mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
         mediaPlayer.play();
     }
