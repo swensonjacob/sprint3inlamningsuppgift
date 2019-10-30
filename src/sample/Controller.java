@@ -63,6 +63,7 @@ public class Controller {
         startTime = System.currentTimeMillis();
     }
 
+    // Creates exit dialog.
     @FXML
     public void showExitDialog() {
         Dialog<ButtonType> exitDialog = new Dialog<>();
@@ -72,7 +73,7 @@ public class Controller {
             exitDialog.getDialogPane().setContent(fxmlLoader.load());
             addDialogButtons(exitDialog);
         } catch (IOException e1) {
-            System.out.println("Error");
+            System.out.println("Cant read file FXML file.");
             e1.printStackTrace();
         }
 
@@ -82,6 +83,7 @@ public class Controller {
         }
     }
 
+    // Adds button to showExitDialog and adds CSS Stylesheet
     public void addDialogButtons(Dialog<ButtonType> exitDialog) {
         exitDialog.getDialogPane().getButtonTypes().addAll(ButtonType.YES, ButtonType.NO);
         ((Button) exitDialog.getDialogPane().lookupButton(ButtonType.YES)).setText("Yes");
@@ -90,8 +92,9 @@ public class Controller {
         exitDialog.getDialogPane().getStyleClass().add("exitDialogStyle");
     }
 
+    // Places all the buttons on the game field.
     public void placeButtons(List<Button> shuffledList) {
-        //Collections.shuffle((shuffledList));
+        //Collections.shuffle(shuffledList);
         int counter = 0;
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
@@ -102,6 +105,7 @@ public class Controller {
         }
     }
 
+    // Method to switch "nullButton" with the selected button that is "buttonIsChangeable"
     public void changeButtonPlace(Button button) {
         int nullColIndex = GridPane.getColumnIndex(nullButton);
         int nullRowIndex = GridPane.getRowIndex(nullButton);
@@ -111,6 +115,10 @@ public class Controller {
         GridPane.setRowIndex(button, nullRowIndex);
     }
 
+     /*
+     Loops through two for loops. Creates "Counter" that represents a button ex b1,b2,b3 etc.
+     to see if GridPane.getRowIndex/ColumnIndex is the same as the buttons assigned GridPane value.
+     */
     public boolean didYouWin() {
         int counter = 0;
         boolean winning = true;
@@ -128,6 +136,10 @@ public class Controller {
         return winning;
     }
 
+    /*
+    Method to check if selected button is close to "nullButton". If it is, it will be "changeable" and can be applied
+    to method "changeButtonPlace"
+     */
     public boolean buttonIsChangeable(Button button) {
         if ((GridPane.getRowIndex(button).equals(GridPane.getRowIndex(nullButton)))) {
             return GridPane.getColumnIndex(button) - 1 == GridPane.getColumnIndex(nullButton) ||
@@ -153,8 +165,10 @@ public class Controller {
         startingDeathStar.setVisible(true);
         gameSpace.setVisible(true);
     }
+
     public void takeTime(){
 
+        // Divides with 1000 to get seconds instead of milliseconds.
         long durationInSeconds =  (endTime - startTime) / 1000;
         long durationInMinutes = durationInSeconds / 60;
         durationInSeconds %= 60;
