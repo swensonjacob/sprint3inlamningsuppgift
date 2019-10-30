@@ -92,7 +92,7 @@
                         </ImageView>
                     </graphic>
                 </Label>
-                <Label text="You Won" style="-fx-font-size: 36"/>
+                <Label fx:id="winText" style="-fx-font-size: 14"/>
                 <Label >
                     <graphic>
                         <ImageView>

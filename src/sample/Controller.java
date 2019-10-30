@@ -29,6 +29,12 @@ public class Controller {
     private Label brokenDeathStar;
 
     private List<Button> buttons;
+    @FXML
+    private Label winText;
+
+    private long startTime;
+    private long endTime;
+
 
     public void initialize() {
         buttons = Arrays.asList(b1, b2, b3, b4, b5, b6, b7, b8,
@@ -41,6 +47,8 @@ public class Controller {
             if (e.getSource().equals(button) && buttonIsChangeable(button)) {
                 changeButtonPlace(button);
                 if (didYouWin()) {
+                    endTime = System.currentTimeMillis();
+                    takeTime();
                     winMessage();
                 }
             }
@@ -52,6 +60,7 @@ public class Controller {
         gameSpace.setVisible(true);
         winMessageGone();
         placeButtons(buttons);
+        startTime = System.currentTimeMillis();
     }
 
     @FXML
@@ -143,6 +152,19 @@ public class Controller {
         brokenDeathStar.setVisible(false);
         startingDeathStar.setVisible(true);
         gameSpace.setVisible(true);
+    }
+    public void takeTime(){
+
+        long durationInSeconds =  (endTime - startTime) / 1000;
+        long durationInMinutes = durationInSeconds / 60;
+        durationInSeconds %= 60;
+
+        if (durationInMinutes > 0) {
+            winText.setText("     You won\n Your Time: " + durationInMinutes + " M" +
+                    " " + durationInSeconds + "S");
+        }else{
+            winText.setText("   You won\n Your Time: " + durationInSeconds+" S");
+        }
     }
 }
 
